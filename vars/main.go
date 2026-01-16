@@ -3,16 +3,18 @@ package main
 import "fmt"
 
 func main() {
-	var a = 4
-	var b = 5.2
+	fmt.Println("Hello, we are comments")
+	// one line comment
 
-	a = int(b)
+	/*
+		comment block with multi lines
+		comment line 1
+		comment line 2
+		comment line 3
+	*/
 
-	fmt.Println(a, b)
+	var maxValue = 100
+	var writeToDB = true
 
-	var value int
-	var price float64
-	var name string
-	var done bool
-	fmt.Println(value, price, name, done)
+	_, _ = maxValue, writeToDB
 }
