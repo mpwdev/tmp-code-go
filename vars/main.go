@@ -3,37 +3,16 @@ package main
 import "fmt"
 
 func main() {
-	var age int = 30
-	fmt.Println("Age:", age)
+	var a = 4
+	var b = 5.2
 
-	var name = "Bob"
-	fmt.Println("Your Name is:", name)
+	a = int(b)
 
-	message1 := "Learning GoLang"
-	fmt.Println(message1)
-	message1 = "Learning GoLang!"
-	fmt.Println(message1)
+	fmt.Println(a, b)
 
-	car, cost := "Audi", 500
-	fmt.Println(car, cost)
-
-	var (
-		salary    float64
-		firstName string
-		gender    bool
-	)
-	fmt.Println(salary, firstName, gender)
-
-	var a, b, c int
-	fmt.Println(a, b, c)
-
-	var i, j int
-	i, j = 5, 8
-	fmt.Println("i:", i, "j:", j)
-	i, j = j, i // swapping variables
-	fmt.Println("i:", i, "j:", j)
-	//_, _ = i, j
-
-	sum := 5 + 3.4
-	fmt.Println(sum)
+	var value int
+	var price float64
+	var name string
+	var done bool
+	fmt.Println(value, price, name, done)
 }
