@@ -3,24 +3,25 @@ package main
 import "fmt"
 
 func main() {
-	const days int = 7
+	const a float64 = 5.1
+	const b = 6.7
 
-	const n, m int = 4, 5
-	const n1, m1 = 6, 7
+	const c float64 = a * b
+	const str = "Hello " + "Go"
 
-	const (
-		min1 = -500
-		min2 = -300
-		min3 = 200
-	)
+	const d = 5 > 10
 
-	const ( // group constants
-		max1 = 500
-		max2
-		max3
-	)
+	fmt.Println(d)
 
-	fmt.Println(min1, min2, min3)
-	fmt.Println(max1, max2, max3)
+	const x = 5
+	const y = 6.7 * 2
+	fmt.Printf("%T\n", x)
+	fmt.Printf("%T\n", y)
 
+	var i int = x     // x to int
+	var j float64 = x // var j float64 = float64(x)
+	var p byte = x
+
+	fmt.Println(i, j, p)
+	fmt.Printf("i is: %T | j is: %T | p is: %T", i, j, p)
 }
