@@ -1,41 +1,47 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	const (
-		c1 = iota
-		c2 = iota
-		c3 = iota
-	)
+	// var r rune = 'f'
+	// fmt.Printf("%T\n", r)
+	// fmt.Println(r)
 
-	fmt.Println(c1, c2, c3)
+	// array
+	var numbers = [4]int{3, 5, -9, 100}
+	fmt.Printf("%T\n", numbers)
 
-	const (
-		c11 = iota
-		c22
-		c33
-	)
+	// slice
+	var names = []string{"Bob", "Kate", "Dan"}
+	fmt.Printf("%T\n", names)
 
-	fmt.Println(c11, c22, c33)
+	// map
+	balances := map[string]float64{
+		"USD": 2349.5,
+		"EUR": 6345.7,
+	}
+	fmt.Printf("%T\n", balances)
 
-	const (
-		a = iota * 2
-		b
-		c
-	)
+	// struct
 
-	fmt.Println(a, b, c)
+	type Person struct {
+		name string
+		age  int
+	}
 
-	const (
-		x = -(iota + 2)
-		_ // skipped
-		y
-		z
-		_ // skipped
-		d
-		t
-	)
+	var you Person
+	fmt.Printf("%T\n", you)
 
-	fmt.Println(x, y, z, d, t)
+	// pointer
+	var zz int = 5
+	ptr := &zz
+	fmt.Printf("%T | %v\n", ptr, ptr)
+
+	// function
+	fmt.Printf("%T\n", f)
+
 }
+
+func f() {}
