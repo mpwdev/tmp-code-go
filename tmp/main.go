@@ -1,27 +1,13 @@
 package main
 
-import "fmt"
-
 func main() {
 
-	// var a int
-	// var b float64
-	// var c bool
-	// var d string
+	var a float64 = 7.1
 
-	var (
-		a int
-		b float64
-		c bool
-		d string
-	)
-	
-	// x := 20
-	// y := 15.5
-	// z := "Gopher!"
+	x, y := true, 3.7
 
-	x, y, z := 20, 15.5, "Gopher!"
+	a, x = 5.5, false
 
-	fmt.Println(a, b, c, d, x, y, z)
+	_, _, _ = a, x, y
 
 }
