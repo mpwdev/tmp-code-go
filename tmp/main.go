@@ -2,22 +2,32 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 )
 
 func main() {
 
-	var x = 3
-	var y = 3.2
+	s := string(99)
+	fmt.Println(s)
 
-	x = x * int(y)
-	fmt.Println(x, y)
-	fmt.Printf("%T\n", y)
+	var myStr = fmt.Sprintf("%f", 44.2)
+	fmt.Println(myStr)
 
-	y = float64(x) * y
-	fmt.Println(x, y)
-	fmt.Printf("%T\n", x)
+	var myStr1 = fmt.Sprintf("%d", 34234)
+	fmt.Println(myStr1)
 
-	fmt.Printf("%T\n", y)
-	fmt.Printf("%T\n", int(y))
+	fmt.Println(string(34234))
+
+	s1 := "3.123"
+	fmt.Printf("%T\n", s1)
+
+	var f1, err = strconv.ParseFloat(s1, 64)
+	fmt.Println(f1*1.5, err)
+
+	i, err := strconv.Atoi("-50")
+	s2 := strconv.Itoa(20)
+
+	fmt.Printf("i type is %T, i value is %v\n", i, i)
+	fmt.Printf("s2 type is %T, s2 value is %v\n", s2, s2)
 
 }
