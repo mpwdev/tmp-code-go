@@ -6,10 +6,18 @@ import (
 
 func main() {
 
-	var x uint8 = 255
-	x++ // overflow
-	fmt.Println(x)
+	var x = 3
+	var y = 3.2
 
-	// a := int8(255 + 1)
+	x = x * int(y)
+	fmt.Println(x, y)
+	fmt.Printf("%T\n", y)
+
+	y = float64(x) * y
+	fmt.Println(x, y)
+	fmt.Printf("%T\n", x)
+
+	fmt.Printf("%T\n", y)
+	fmt.Printf("%T\n", int(y))
 
 }
