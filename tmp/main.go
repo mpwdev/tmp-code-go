@@ -4,9 +4,15 @@ import "fmt"
 
 func main() {
 
-	type second = uint
+	var a int
+	var b float64
+	var c bool
+	var d string
+	
+	x := 20
+	y := 15.5
+	z := "Gopher!"
 
-	var hour second = 3600
-	fmt.Printf("Minutes in an hour: %d \n", hour/60)
+	fmt.Println(a, b, c, d, x, y, z)
 
 }
