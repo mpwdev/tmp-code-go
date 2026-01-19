@@ -4,9 +4,13 @@ import "fmt"
 
 func main() {
 
-	const secPerDay = 60 * 60 * 24
-	const daysYear = 365
+	const (
+		//iota starts from zero
+		Jun = iota + 6
+		Jul
+		Aug
+	)
 
-	fmt.Println("Total number sec in year:", secPerDay*daysYear)
+	fmt.Println(Jun, Jul, Aug)
 
 }
