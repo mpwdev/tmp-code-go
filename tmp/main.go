@@ -2,11 +2,16 @@ package main
 
 import "fmt"
 
-var version = "3.1"
-
 func main() {
 
-	name := "Golang"
-	fmt.Println(name)
+	const daysWeek int = 7
+	const lightSpeedM = 299792458
+	const lightSpeed float64 = 299792458
+	const pi float64 = 3.14159
+
+	fmt.Println(daysWeek)
+	fmt.Println(lightSpeedM)
+	fmt.Println(lightSpeed)
+	fmt.Println(pi)
 
 }
