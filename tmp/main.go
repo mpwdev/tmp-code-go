@@ -9,8 +9,9 @@ func main() {
 		Jun = iota + 6
 		Jul
 		Aug
+		Sept
 	)
 
-	fmt.Println(Jun, Jul, Aug)
+	fmt.Println(Jun, Jul, Aug, Sept)
 
 }
