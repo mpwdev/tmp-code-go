@@ -10,6 +10,7 @@ func main() {
 		Jul
 		Aug
 		Sept
+		Oct
 	)
 
 	fmt.Println(Jun, Jul, Aug, Sept)
