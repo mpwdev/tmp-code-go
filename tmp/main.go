@@ -5,14 +5,15 @@ import "fmt"
 func main() {
 
 	price, inStock := 100, true
-	if price > 80 {
-		fmt.Println("Expensive")
+
+	if price < 100 {
+		fmt.Println("It's cheap!")
+	} else if price == 100 {
+		fmt.Println("On the edge")
+	} else { //executed only once if all the if branches are false (it's optional)
+		fmt.Println("It's Expensive!")
 	}
 
-	//_ = inStock
-
-	if price <= 100 && inStock == true {
-		fmt.Println("You can buy it")
-	}
+	_ = inStock
 
 }
