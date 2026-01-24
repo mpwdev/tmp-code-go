@@ -9,6 +9,10 @@ func main() {
 		fmt.Println("Expensive")
 	}
 
-	_ = inStock
+	//_ = inStock
+
+	if price <= 100 && inStock == true {
+		fmt.Println("You can buy it")
+	}
 
 }
