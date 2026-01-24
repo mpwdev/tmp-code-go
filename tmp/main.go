@@ -4,17 +4,18 @@ import "fmt"
 
 func main() {
 
-	const (
-		// iota starts from zero
-		Jun = iota + 6
-		Jul
-		Aug
-		Sept
-		Oct
-		Nov
-		Dec
-	)
+	x, y := 0.1, 5
+	var z float64
 
-	fmt.Println(Jun, Jul, Aug, Sept, Oct, Nov, Dec)
+	// Write the correct logical operator (&&, || , !)
+	// inside the expression so that result1 will be false and result2 will be true.
+
+	// false
+	result1 := x < z || int(x) != int(z)
+	fmt.Println(result1)
+
+	// true
+	result2 := y == 1*5 && int(z) == 0
+	fmt.Println(result2)
 
 }
