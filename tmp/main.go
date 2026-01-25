@@ -10,9 +10,16 @@ func main() {
 	// 	fmt.Println(i)
 	// }
 
-	for i := 0; i < 10; {
-		fmt.Println(i)
-		i++
+	// for i := 0; i < 10; {
+	// 	fmt.Println(i)
+	// 	i++
+	// }
+
+	// simulate while loop with for loop
+	j := 10
+	for j >= 0 {
+		fmt.Println(j)
+		j--
 	}
 
 }
