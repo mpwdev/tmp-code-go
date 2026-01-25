@@ -6,26 +6,22 @@ import (
 
 func main() {
 
-	// for i := 0; i < 10; i++ {
-	// 	if i%2 != 0 {
-	// 		continue
-	// 	}
-	// 	fmt.Println(i)
-	// }
+	outer := 19 // var
+	//_ = outer
 
-	count := 0
+	people := [5]string{"Bob", "Dan", "Rob", "Kate", "Marry"}
+	friends := [2]string{"Kate", "Lisa"}
 
-	for i := 0; true; i++ {
-		if i%13 == 0 {
-			fmt.Printf("%d is divisible by 13 \n", i)
-			count++
-		}
-		if count == 5 {
-			break
+outer: // label
+	for index, name := range people {
+		for _, friend := range friends {
+			if name == friend {
+				fmt.Printf("Found a friend %q at index %d\n", friend, index)
+				break outer
+			}
 		}
 	}
-
-	// code after for loop
-	fmt.Println("Code line (message) after for loop")
+	fmt.Println("next line code after break")
+	fmt.Println(outer) // no conflicts with label outer
 
 }
