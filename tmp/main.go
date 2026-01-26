@@ -2,41 +2,34 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 func main() {
-	var numbers [4]int
-
-	fmt.Printf("%v\n", numbers)
+	numbers := [3]int{10, 20, 30}
 	fmt.Printf("%#v\n", numbers)
 
-	var a1 = [4]float64{}
-	fmt.Printf("%#v\n", a1)
+	numbers[0] = 7
+	fmt.Printf("%#v\n", numbers)
 
-	var a2 = [3]int{-10, 1, 100}
-	fmt.Printf("%#v\n", a2)
-
-	a3 := [4]string{"Bob", "Pol", "Kate", "Dan"}
-	fmt.Printf("%#v\n", a3)
-
-	a4 := [4]string{"x", "y"}
-	fmt.Printf("%#v\n", a4)
-
-	// a5 := [4]int{5, 10}
-	// fmt.Printf("%#v\n", a5)
-
-	//ellipsis operator
-
-	a5 := [...]int{1, -2, 5, 7, 4, 3}
-	fmt.Printf("%#v\n", a5)
-	fmt.Printf("a5 length is %d\n", len(a5))
-
-	a6 := [...]int{1,
-		2,
-		3,
-		4,
-		5, // <-- this last comma is mandatory
+	for i, v := range numbers {
+		fmt.Println("index:", i, "value:", v)
 	}
-	fmt.Println(a6)
 
+	fmt.Println(strings.Repeat("-", 15))
+
+	for i := 0; i < len(numbers); i++ {
+		fmt.Println("index:", i, "value:", numbers[i])
+	}
+
+	fmt.Println(strings.Repeat("-", 15))
+
+	balances := [2][3]int{{5, 6, 7}, {8, 9, 10}}
+	fmt.Println(balances)
+
+	balances2 := [2][3]int{{5, 6, 7}, {8, 9}}
+	fmt.Println(balances2)
+
+	// balances3 := [2][3]int{{5, 6, 7}, {"8", 9}}
+	// fmt.Println(balances3)
 }
