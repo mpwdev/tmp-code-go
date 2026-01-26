@@ -6,12 +6,15 @@ import (
 
 func main() {
 
-	i := 0
-loop: // label
-	if i < 5 {
-		fmt.Println(i)
-		i++
-		goto loop
+	lang := "golang"
+
+	switch lang {
+	case "Python":
+		fmt.Println("it is Python")
+	case "Go", "golang":
+		fmt.Println("It is Go")
+	default:
+		fmt.Println("Other langs")
 	}
 
 }
