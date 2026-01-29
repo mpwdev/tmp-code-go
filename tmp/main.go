@@ -5,36 +5,32 @@ import (
 )
 
 func main() {
-	grades := [4]int{
-		1: 10,
-		0: 5,
-		2: 7,
-		3: 9,
+	var cities []string
+	fmt.Println("cities is equal to nill:", cities == nil)
+	fmt.Printf("cities %#v\n", cities)
+	fmt.Println(len(cities))
+
+	numbers := []int{2, 3, 4, 5}
+	fmt.Println(numbers)
+
+	for index, value := range numbers {
+		fmt.Printf("index: %v, value: %v\n", index, value)
 	}
-	fmt.Println(grades)
 
-	// array int default
-	accounts := [3]int{2: 50}
-	fmt.Println(accounts)
+	var n []int
+	n = numbers
+	fmt.Println(n)
 
-	// array strings default
-	names := [...]string{5: "Bob"}
-	fmt.Println(names, len(names))
+	nums := make([]int, 2)
+	fmt.Printf("%#v\n", nums)
 
-	var numbers [3]int
-	fmt.Println("Default array:", numbers)
+	type names []string
+	friends := names{"Dan", "Maria"}
+	fmt.Println(friends)
 
-	// Initialize elements by index
-	numbers[0] = 1
-	numbers[1] = 2
-	numbers[2] = 3
-	fmt.Println("Initialized array:", numbers)
+	myFriend1 := friends[0]
+	fmt.Println("slice 0 index string:", myFriend1)
 
-	// Declare and initialize in one line (shorthand)
-	primes := [6]int{2, 3, 5, 7, 11, 13}
-	fmt.Println("Shorthand initialization:", primes)
-
-	// Let the compiler infer the length using "..."
-	cities := [...]string{"London", "Paris", "Tokyo"}
-	fmt.Println("Inferred length array:", cities)
+	friends[0] = "Bob"
+	fmt.Println("slice 0 index string:", friends[0])
 }
