@@ -5,32 +5,33 @@ import (
 )
 
 func main() {
-	var cities []string
-	fmt.Println("cities is equal to nill:", cities == nil)
-	fmt.Printf("cities %#v\n", cities)
-	fmt.Println(len(cities))
+	var n []int
+	fmt.Println(n == nil)
 
-	numbers := []int{2, 3, 4, 5}
-	fmt.Println(numbers)
+	m := []int{}
+	fmt.Println(m == nil)
 
-	for index, value := range numbers {
-		fmt.Printf("index: %v, value: %v\n", index, value)
+	a, b := []int{1, 2, 3}, []int{1, 2, 3}
+
+	//var eq bool = true
+	eq := true
+
+	//a = nil
+	for i, valueA := range a {
+		if valueA != b[i] {
+			eq = false
+			break
+		}
 	}
 
-	var n []int
-	n = numbers
-	fmt.Println(n)
+	if len(a) != len(b) {
+		eq = false
+	}
 
-	nums := make([]int, 2)
-	fmt.Printf("%#v\n", nums)
+	if eq == true {
+		fmt.Println("a and b slices are equal")
+	} else {
+		fmt.Println("a and b slices are NOT equal")
+	}
 
-	type names []string
-	friends := names{"Dan", "Maria"}
-	fmt.Println(friends)
-
-	myFriend1 := friends[0]
-	fmt.Println("slice 0 index string:", myFriend1)
-
-	friends[0] = "Bob"
-	fmt.Println("slice 0 index string:", friends[0])
 }
