@@ -33,5 +33,6 @@ func main() {
 	} else {
 		fmt.Println("a and b slices are NOT equal")
 	}
+	fmt.Println(eq)
 
 }
