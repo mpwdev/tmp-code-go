@@ -35,4 +35,11 @@ func main() {
 	}
 	fmt.Println(eq)
 
+	// Slices cannot be compared using == operator except for nil comparison
+	// if a == b {
+	// 	fmt.Println("a and b slices are equal")
+	// } else {
+	// 	fmt.Println("a and b slices are NOT equal")
+	// }
+
 }
