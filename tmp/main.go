@@ -5,30 +5,19 @@ import (
 )
 
 func main() {
-	var n []int
-	fmt.Println(n == nil)
+	numbers := []int{2, 3}
+	numbers = append(numbers, 4)
+	fmt.Println(numbers)
 
-	m := []int{}
-	fmt.Println(m == nil)
+	numbers = append(numbers, 5, 6, 7)
+	fmt.Println(numbers)
 
-	a, b := []int{1, 2, 3}, []int{1, 7, 3}
-	//fmt.Println(a == b)
+	n := []int{10, 20, 30}
+	numbers = append(numbers, n...)
+	fmt.Println(numbers)
 
-	var eq bool = true
-	for i, valueA := range a {
-		if valueA != b[i] {
-			eq = false
-			break
-		}
-	}
-
-	if len(a) != len(b) {
-		eq = false
-	}
-
-	if eq == true {
-		fmt.Println("a and b slices are equal")
-	} else {
-		fmt.Println("a and b slices are NOT equal")
-	}
+	src := []int{100, 200, 300}
+	dst := make([]int, 2)
+	nn := copy(dst, src)
+	fmt.Println(src, dst, nn)
 }
