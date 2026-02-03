@@ -2,36 +2,20 @@ package main
 
 import (
 	"fmt"
-	"unsafe"
 )
 
 func main() {
-	cars := []string{"Toyota", "Honda", "Nissan", "Ford"}
-	fmt.Println(cars)
+	var nums []int
+	fmt.Printf("nums: %#v, type: %T, len: %d, cap: %d\n", nums, nums, len(nums), cap(nums))
 
-	newCars := []string{}
-	newCars = append(newCars, cars[0:2]...)
-	fmt.Println(newCars)
+	nums = append(nums, 1, 2)
+	fmt.Printf("nums: %#v, type: %T, len: %d, cap: %d\n", nums, nums, len(nums), cap(nums))
 
-	cars[0] = "BMW"
-	fmt.Println(cars)
-	fmt.Println(newCars)
+	nums = append(nums, 3, 4, 5)
+	fmt.Printf("nums: %#v, type: %T, len: %d, cap: %d\n", nums, nums, len(nums), cap(nums))
 
-	s1 := []int{1, 2, 3, 4, 5}
-	newSlice := s1[0:3]
-	fmt.Println(len(newSlice), cap(newSlice))
+	nums = append(nums, 6, 7, 8, 9, 10)
+	fmt.Printf("nums: %#v, type: %T, len: %d, cap: %d\n", nums, nums, len(nums), cap(nums))
 
-	newSlice = s1[2:5]
-	fmt.Println(len(newSlice), cap(newSlice))
-
-	fmt.Printf("%p\n", &s1)
-
-	fmt.Printf("%p %p %p\n", &s1, &newSlice, &newSlice[0])
-
-	a := [5]int{1, 2, 3, 4, 5}
-	s := []int{1, 2, 3, 4, 5}
-
-	fmt.Printf("array's size in bytes: %d\n", unsafe.Sizeof(a))
-	fmt.Printf("slice's size in bytes: %d\n", unsafe.Sizeof(s))
-
+	nums = append(nums, 11, 12, 13, 14, 15)
 }
