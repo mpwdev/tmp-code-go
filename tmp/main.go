@@ -11,12 +11,10 @@ func main() {
 	m := []int{}
 	fmt.Println(m == nil)
 
-	a, b := []int{1, 2, 3}, []int{1, 2, 3}
+	a, b := []int{1, 2, 3}, []int{1, 7, 3}
+	//fmt.Println(a == b)
 
-	//var eq bool = true
-	eq := true
-
-	//a = nil
+	var eq bool = true
 	for i, valueA := range a {
 		if valueA != b[i] {
 			eq = false
@@ -33,9 +31,4 @@ func main() {
 	} else {
 		fmt.Println("a and b slices are NOT equal")
 	}
-	fmt.Println(eq)
-
-	c, d := [3]int{1, 2, 3}, [3]int{1, 2, 3}
-	fmt.Println(c == d)
-
 }
