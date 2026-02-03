@@ -5,19 +5,26 @@ import (
 )
 
 func main() {
-	numbers := []int{2, 3}
-	numbers = append(numbers, 4)
-	fmt.Println(numbers)
+	a := [5]int{1, 2, 3, 4, 5}
+	b := a[1:3]
+	fmt.Println(b)
+	fmt.Printf("b: %v, type: %T, len: %d, cap: %d\n", b, b, len(b), cap(b))
 
-	numbers = append(numbers, 5, 6, 7)
-	fmt.Println(numbers)
+	s1 := []int{1, 2, 3, 4, 5, 6}
+	s2 := s1[1:3]
+	fmt.Println(s2)
 
-	n := []int{10, 20, 30}
-	numbers = append(numbers, n...)
-	fmt.Println(numbers)
+	fmt.Println("--------------------------------")
 
-	src := []int{100, 200, 300}
-	dst := make([]int, 2)
-	nn := copy(dst, src)
-	fmt.Println(src, dst, nn)
+	fmt.Println(s1[2:])
+	fmt.Println(s1[:3])
+	fmt.Println(s1[:])
+	fmt.Println(s1[2:4])
+
+	s1 = append(s1[:4], 100)
+	fmt.Println(s1)
+
+	s1 = append(s1[:4], 200)
+	fmt.Println(s1)
+
 }
