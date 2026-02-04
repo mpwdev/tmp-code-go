@@ -5,18 +5,8 @@ import (
 )
 
 func main() {
-	s1 := "Hello Go"
-	fmt.Println(s1)
-
-	fmt.Println(`He says: "Hello Go"`)
-
-	s2 := `I like Go` //raw string
-	fmt.Println(s2)
-
-	var s3 = "I love" + " Go" // string concatenation
-	fmt.Println(s3)
-
-	fmt.Printf("s3: %s\n", s3)
-	fmt.Printf("s3: %q\n", s3)
+	var1, var2 := 'a', 'b'
+	fmt.Printf("type of var1: %T, value of var1: %d\n", var1, var1)
+	fmt.Printf("type of var2: %T, value of var2: %d\n", var2, var2)
 
 }
