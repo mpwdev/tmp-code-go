@@ -5,17 +5,18 @@ import (
 )
 
 func main() {
-	var nums []int
-	fmt.Printf("nums: %#v, type: %T, len: %d, cap: %d\n", nums, nums, len(nums), cap(nums))
+	s1 := "Hello Go"
+	fmt.Println(s1)
 
-	nums = append(nums, 1, 2)
-	fmt.Printf("nums: %#v, type: %T, len: %d, cap: %d\n", nums, nums, len(nums), cap(nums))
+	fmt.Println(`He says: "Hello Go"`)
 
-	nums = append(nums, 3, 4, 5)
-	fmt.Printf("nums: %#v, type: %T, len: %d, cap: %d\n", nums, nums, len(nums), cap(nums))
+	s2 := `I like Go` //raw string
+	fmt.Println(s2)
 
-	nums = append(nums, 6, 7, 8, 9, 10)
-	fmt.Printf("nums: %#v, type: %T, len: %d, cap: %d\n", nums, nums, len(nums), cap(nums))
+	var s3 = "I love" + " Go" // string concatenation
+	fmt.Println(s3)
 
-	nums = append(nums, 11, 12, 13, 14, 15)
+	fmt.Printf("s3: %s\n", s3)
+	fmt.Printf("s3: %q\n", s3)
+
 }
