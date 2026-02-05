@@ -7,24 +7,30 @@ import (
 
 func main() {
 	p := fmt.Println
-	result := strings.Contains("I love Go", "ov") // true
-	p(result)
 
-	result = strings.ContainsAny("success", "xy") // false - x or y not in success
-	p(result)
+	myStr := strings.Repeat("ab", 5)
+	p(myStr)
 
-	result = strings.ContainsRune("I love Go", 'v')
-	p(result)
+	myStr = strings.Replace("192.168.0.1", ".", ":", 2)
+	p(myStr)
 
-	n := strings.Count("cheese", "e") // 3
-	p(n)
+	myStr = strings.ReplaceAll("192.168.0.1", ".", "-")
+	p(myStr)
 
-	p(strings.ToLower("Hello, World!"))
-	p(strings.ToUpper("Hello, World!"))
+	s := strings.Split("a,b,c", ",")
+	p(s)
+	fmt.Printf("%#v\n", s)
 
-	p("go" == "go")
-	p("Go" == "go")
-	p(strings.ToLower("GO") == strings.ToLower("go")) // not good
+	s1 := strings.Split("Go for Golang", "")
+	p(s1)
+	fmt.Printf("%#v\n", s1)
 
-	p(strings.EqualFold("GO", "go"))
+	s = []string{"I", "learn", "Go", "language"}
+	p(strings.Join(s, "-"))
+
+	s2 := strings.TrimSpace("  \t\n Hello, World! \n\t\r  ")
+	p(s2)
+
+	s3 := strings.Trim("...Hello, World!!!!!???", ".!?")
+	p(s3)
 }
