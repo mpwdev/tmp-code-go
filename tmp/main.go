@@ -5,19 +5,27 @@ import (
 )
 
 func main() {
-	a := map[string]string{"A": "X"}
-	//b := map[string]string{"B": "Y"}
-	b := map[string]string{"A": "X"}
-
-	s1 := fmt.Sprintf("%s", a)
-	s2 := fmt.Sprintf("%s", b)
-	fmt.Println(s1)
-	fmt.Println(s2)
-
-	if s1 == s2 {
-		fmt.Println("s1 and s2 are equal")
-	} else {
-		fmt.Println("s1 and s2 are not equal")
+	friends := map[string]int{
+		"Alice":   25,
+		"Bob":     30,
+		"Charlie": 35,
 	}
+
+	neighbors := friends
+
+	friends["Alice"] = 50
+	fmt.Printf("friends: %#v\n", friends)
+	fmt.Printf("neighbors: %#v\n", neighbors)
+
+	people := make(map[string]int)
+
+	for k, v := range friends {
+		people[k] = v
+	}
+	fmt.Printf("people: %#v\n", people)
+
+	people["Alice"] = 25
+	fmt.Printf("friends: %#v\n", friends)
+	fmt.Printf("people: %#v\n", people)
 
 }
