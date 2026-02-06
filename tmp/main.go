@@ -2,35 +2,56 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
 func main() {
-	p := fmt.Println
+	var employes map[string]string
+	fmt.Printf("%#v\n", employes)
+	fmt.Printf("no of pairs: %d\n", len(employes))
 
-	myStr := strings.Repeat("ab", 5)
-	p(myStr)
+	people := map[string]float64{}
+	people["John"] = 25.5
+	people["Jane"] = 30.0
+	people["Jim"] = 35.5
 
-	myStr = strings.Replace("192.168.0.1", ".", ":", 2)
-	p(myStr)
+	fmt.Printf("%#v\n", people)
+	fmt.Printf("no of pairs: %d\n", len(people))
 
-	myStr = strings.ReplaceAll("192.168.0.1", ".", "-")
-	p(myStr)
+	map1 := make(map[int]int)
+	map1[1] = 10
+	map1[2] = 20
+	map1[3] = 30
+	fmt.Printf("%#v\n", map1)
+	fmt.Printf("no of pairs: %d\n", len(map1))
 
-	s := strings.Split("a,b,c", ",")
-	p(s)
-	fmt.Printf("%#v\n", s)
+	balances := map[string]float64{
+		"USD": 1000.0,
+		"EUR": 2000.0,
+		"JPY": 3000.0,
+	}
+	fmt.Printf("%#v\n", balances)
+	fmt.Printf("no of pairs: %d\n", len(balances))
 
-	s1 := strings.Split("Go for Golang", "")
-	p(s1)
-	fmt.Printf("%#v\n", s1)
+	balances["USD"] = 500.0
+	balances["GBP"] = 255.0
+	fmt.Printf("%#v\n", balances)
+	fmt.Printf("no of pairs: %d\n", len(balances))
 
-	s = []string{"I", "learn", "Go", "language"}
-	p(strings.Join(s, "-"))
+	//balances["RON"] = 331.0
 
-	s2 := strings.TrimSpace("  \t\n Hello, World! \n\t\r  ")
-	p(s2)
+	v, ok := balances["RON"]
+	if ok {
+		fmt.Println("RON is in the map", v)
+	} else {
+		fmt.Println("RON is not in the map")
+	}
 
-	s3 := strings.Trim("...Hello, World!!!!!???", ".!?")
-	p(s3)
+	for k, v := range balances {
+		fmt.Printf("key: %s, value: %#v\n", k, v)
+	}
+
+	delete(balances, "USD")
+	fmt.Printf("%#v\n", balances)
+	fmt.Printf("no of pairs: %d\n", len(balances))
+
 }
