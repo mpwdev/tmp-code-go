@@ -1,8 +1,8 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
-	"io"
 	"log"
 	"os"
 )
@@ -14,19 +14,32 @@ func main() {
 	}
 	defer file.Close()
 
-	// byteSlice := make([]byte, 5)
-	// numberBytesRead, err := io.ReadFull(file, byteSlice)
-	// if err != nil {
-	// 	log.Fatal(err)
+	scanner := bufio.NewScanner(file)
+	// for scanner.Scan() {
+	// 	fmt.Println(scanner.Text())
 	// }
-	// fmt.Printf("Number of bytes read: %d\n", numberBytesRead)
-	// fmt.Printf("Data read: %s\n", byteSlice)
 
-	data, err := io.ReadAll(file)
-	if err != nil {
+	// success := scanner.Scan()
+	// if success == false {
+	// 	err = scanner.Err()
+	// 	if err == nil {
+	// 		log.Println("Scan completed and no error occurred")
+	// 	} else {
+	// 		log.Fatal(err)
+	// 	}
+	// }
+	// fmt.Println("First line of file:", scanner.Text())
+
+	// scanner.Scan()
+	// fmt.Println("Second line of file:", scanner.Text())
+
+	// scanner.Scan()
+
+	for scanner.Scan() {
+		fmt.Println(scanner.Text())
+	}
+	if err := scanner.Err(); err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("Data read: %s\n", string(data))
-	fmt.Printf("Number of bytes read: %d\n", len(data))
 
 }
