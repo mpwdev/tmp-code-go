@@ -3,12 +3,6 @@ package main
 import "fmt"
 
 func main() {
-	title1, author1, year1 := "The Great Gatsby", "F. Scott Fitzgerald", 1925
-	title2, author2, year2 := "1984", "George Orwell", 1949
-
-	fmt.Println(title1, author1, year1)
-	fmt.Println(title2, author2, year2)
-	fmt.Println("--------------------------------")
 
 	type book struct {
 		title  string
@@ -16,16 +10,19 @@ func main() {
 		year   int
 	}
 
-	// type book01 struct {
-	// 	title, author string
-	// 	year          int
-	// }
-
-	book1 := book{title: title1, author: author1, year: year1}
-	book2 := book{title: title2, author: author2, year: year2}
-
-	fmt.Println(book1)
-	fmt.Println(book2)
+	book1 := book{title: "The Great Gatsby"}
+	fmt.Println(book1.title)
+	book1.author = "F. Scott Fitzgerald"
+	book1.year = 1925
+	fmt.Println(book1.author)
+	fmt.Println(book1.year)
 	fmt.Printf("Book 1: %+v\n", book1)
-	fmt.Printf("Book 2: %+v\n", book2)
+
+	book2 := book{title: "The Great Gatsby", author: "F. Scott Fitzgerald", year: 1925}
+	fmt.Println(book1 == book2)
+
+	book2copy := book2
+	book2copy.title = "1984"
+	fmt.Println(book2copy.title)
+	fmt.Println(book2.title)
 }
