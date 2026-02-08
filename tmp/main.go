@@ -4,59 +4,38 @@ import "fmt"
 
 func main() {
 
-	// type book struct {
-	// 	title  string
-	// 	author string
-	// 	year   int
-	// }
-
-	// book1 := book{title: "The Great Gatsby"}
-	// fmt.Println(book1.title)
-	// book1.author = "F. Scott Fitzgerald"
-	// book1.year = 1925
-	// fmt.Println(book1.author)
-	// fmt.Println(book1.year)
-	// fmt.Printf("Book 1: %+v\n", book1)
-
-	// book2 := book{title: "The Great Gatsby", author: "F. Scott Fitzgerald", year: 1925}
-	// fmt.Println(book1 == book2)
-
-	// book2copy := book2
-	// book2copy.title = "1984"
-	// fmt.Println(book2copy.title)
-	// fmt.Println(book2.title)
-
-	// diana := struct { // anonymous struct
-	// 	firstname string
-	// 	lastname  string
-	// 	age       int
-	// }{firstname: "Diana", lastname: "Prince", age: 25}
-	// fmt.Println(diana.firstname)
-	// fmt.Println(diana.lastname)
-	// fmt.Println(diana.age)
-	// fmt.Printf("Diana: %+v\n", diana)
-	// fmt.Printf("Diana pointer: %p\n", &diana)
-	// fmt.Printf("Diana's Age: %d\n", diana.age)
-
-	// diana2 := diana
-	// diana2.firstname = "Diana"
-	// diana2.lastname = "Prince"
-	// diana2.age = 25
-	// fmt.Println(diana2.firstname)
-	// fmt.Println(diana2.lastname)
-	// fmt.Println(diana2.age)
-
-	type Book struct {
-		string
-		float64
-		bool
+	type Contact struct {
+		firstname string
+		lastname  string
+		email     string
+		phone     int
 	}
 
-	b1 := Book{
-		"The Great Gatsby",
-		1925,
-		true,
+	type Employee struct {
+		name        string
+		salary      int
+		contactInfo Contact
 	}
-	fmt.Println(b1)
-	fmt.Println(b1.string)
+
+	john := Employee{
+		name:   "John Doe",
+		salary: 100000,
+		contactInfo: Contact{
+			firstname: "John",
+			lastname:  "Doe",
+			email:     "john.doe@example.com",
+			phone:     1234567890,
+		},
+	}
+
+	fmt.Println(john)
+	fmt.Println(john.name)
+	fmt.Println(john.salary)
+	fmt.Println(john.contactInfo.firstname)
+	fmt.Println(john.contactInfo.lastname)
+	fmt.Println(john.contactInfo.email)
+	fmt.Println(john.contactInfo.phone)
+
+	john.contactInfo.email = "john.doe@new.com"
+	fmt.Println(john.contactInfo.email)
 }
