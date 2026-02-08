@@ -2,40 +2,32 @@ package main
 
 import "fmt"
 
+func f1() {
+	fmt.Println("this is f1 function")
+}
+
+func f2(a int, b int) {
+	fmt.Println("sum:", a+b)
+}
+
+func f3(a, b, c int, d, e float64, s string) {
+	fmt.Println("a:", a, "b:", b, "c:", c, "d:", d, "e:", e, "s:", s)
+}
+
+func f4(a float64) float64 {
+	return a * 2
+}
+
+func f5(a, b int) (int, int) {
+	return a + b, a - b
+}
+
 func main() {
-
-	type Contact struct {
-		firstname string
-		lastname  string
-		email     string
-		phone     int
-	}
-
-	type Employee struct {
-		name        string
-		salary      int
-		contactInfo Contact
-	}
-
-	john := Employee{
-		name:   "John Doe",
-		salary: 100000,
-		contactInfo: Contact{
-			firstname: "John",
-			lastname:  "Doe",
-			email:     "john.doe@example.com",
-			phone:     1234567890,
-		},
-	}
-
-	fmt.Println(john)
-	fmt.Println(john.name)
-	fmt.Println(john.salary)
-	fmt.Println(john.contactInfo.firstname)
-	fmt.Println(john.contactInfo.lastname)
-	fmt.Println(john.contactInfo.email)
-	fmt.Println(john.contactInfo.phone)
-
-	john.contactInfo.email = "john.doe@new.com"
-	fmt.Println(john.contactInfo.email)
+	f1()
+	f2(5, 7)
+	f3(1, 2, 3, 4.5, 6.7, "hello")
+	p := f4(1.5)
+	fmt.Println("p:", p)
+	q, r := f5(10, 5)
+	fmt.Println("q:", q, "r:", r)
 }
