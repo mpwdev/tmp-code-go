@@ -2,32 +2,28 @@ package main
 
 import "fmt"
 
-func f1() {
-	fmt.Println("this is f1 function")
+func changeValues(quantity int, price float64, name string, sold bool) {
+	quantity = 3
+	price = 500.4
+	name = "Mob Phone"
+	sold = false
 }
 
-func f2(a int, b int) {
-	fmt.Println("sum:", a+b)
-}
-
-func f3(a, b, c int, d, e float64, s string) {
-	fmt.Println("a:", a, "b:", b, "c:", c, "d:", d, "e:", e, "s:", s)
-}
-
-func f4(a float64) float64 {
-	return a * 2
-}
-
-func f5(a, b int) (int, int) {
-	return a + b, a - b
+func changeValuesByPointer(quantity *int, price *float64, name *string, sold *bool) {
+	*quantity = 3
+	*price = 500.4
+	*name = "Mob Phone"
+	*sold = false
 }
 
 func main() {
-	f1()
-	f2(5, 7)
-	f3(1, 2, 3, 4.5, 6.7, "hello")
-	p := f4(1.5)
-	fmt.Println("p:", p)
-	q, r := f5(10, 5)
-	fmt.Println("q:", q, "r:", r)
+	var quantity int = 5
+	var price float64 = 300.4
+	var name string = "Laptop"
+	var sold bool = true
+	fmt.Println("Before change:", quantity, price, name, sold)
+	changeValues(quantity, price, name, sold)
+	fmt.Println("After change:", quantity, price, name, sold)
+	changeValuesByPointer(&quantity, &price, &name, &sold)
+	fmt.Println("After change by pointer:", quantity, price, name, sold)
 }
