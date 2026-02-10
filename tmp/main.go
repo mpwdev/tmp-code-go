@@ -2,25 +2,12 @@ package main
 
 import "fmt"
 
-func changeSlice(s []int) {
-	for i := range s {
-		s[i]++
-	}
-}
-
-func changeMap(m map[string]int) {
-	m["a"] = 10
-	m["b"] = 20
-	m["c"] = 30
-}
+const boilingF = 212.0
 
 func main() {
-	prices := []int{100, 200, 300}
-	changeSlice(prices)
-	fmt.Println(prices)
-
-	pricesMap := map[string]int{"a": 100, "b": 200, "c": 300}
-	changeMap(pricesMap)
-	fmt.Println(pricesMap)
-
+	var f = boilingF
+	var c = (f - 32) * 5 / 9
+	fmt.Printf("boiling point = %g°F or %g°C\n", f, c)
+	// Output:
+	// boiling point = 212°F or 100°C
 }
