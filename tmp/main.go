@@ -1,13 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"flag"
+	"fmt"
+	"strings"
+)
+
+var n = flag.Bool("n", false, "omit trailing newline")
+var sep = flag.String("s", " ", "separator")
 
 func main() {
-	const freezingF, boilingF = 32.0, 212.0
-	fmt.Printf("%g°F = %g°C\n", freezingF, fToC(freezingF)) // "32°F = 0°C"
-	fmt.Printf("%g°F = %g°C\n", boilingF, fToC(boilingF))   // "212°F = 100°C"
-}
-
-func fToC(f float64) float64 {
-	return (f - 32) * 5 / 9
+	flag.Parse()
+	fmt.Print(strings.Join(flag.Args(), *sep))
+	if !*n {
+		fmt.Println()
+	}
 }
