@@ -1,18 +1,15 @@
 package main
 
 import (
-	"flag"
 	"fmt"
-	"strings"
+	"runtime"
 )
 
-var n = flag.Bool("n", false, "omit trailing newline")
-var sep = flag.String("s", " ", "separator")
-
 func main() {
-	flag.Parse()
-	fmt.Print(strings.Join(flag.Args(), *sep))
-	if !*n {
-		fmt.Println()
-	}
+	fmt.Println("main execution started")
+	fmt.Println("No of CPUs:", runtime.NumCPU())
+	fmt.Println("No of Goroutines:", runtime.NumGoroutine())
+
+	fmt.Println("OS:", runtime.GOOS)
+	fmt.Println("Arch:", runtime.GOARCH)
 }
