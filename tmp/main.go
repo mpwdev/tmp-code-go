@@ -3,15 +3,18 @@ package main
 import (
 	"fmt"
 	"runtime"
+	"sync"
 	"time"
 )
 
-func f1() {
+func f1(wg *sync.WaitGroup) {
 	fmt.Println("f1 goroutine execution started")
 	for i := 0; i < 3; i++ {
 		fmt.Println("f1, i =", i)
+		time.Sleep(time.Second * 1)
 	}
 	fmt.Println("f1 goroutine execution ended")
+	wg.Done()
 }
 
 func f2() {
@@ -23,14 +26,20 @@ func f2() {
 }
 
 func main() {
+
 	fmt.Println("main execution started")
-	go f1()
+
+	var wg sync.WaitGroup
+	wg.Add(1)
+
+	go f1(&wg)
 	fmt.Println("No of Goroutines:", runtime.NumGoroutine())
+
 	f2()
 	fmt.Println("No of Goroutines:", runtime.NumGoroutine())
 
-	time.Sleep(time.Second * 2)
-	fmt.Println("No of Goroutines:", runtime.NumGoroutine())
+	//time.Sleep(time.Second * 2)
+	wg.Wait()
 	fmt.Println("main execution ended")
 
 }
