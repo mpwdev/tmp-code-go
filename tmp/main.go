@@ -2,44 +2,42 @@ package main
 
 import (
 	"fmt"
-	"runtime"
-	"sync"
-	"time"
+	"io"
+	"net/http"
+	"os"
+	"strings"
 )
 
-func f1(wg *sync.WaitGroup) {
-	fmt.Println("f1 goroutine execution started")
-	for i := 0; i < 3; i++ {
-		fmt.Println("f1, i =", i)
-		time.Sleep(time.Second * 1)
+func checkAndSaveBody(url string) {
+	resp, err := http.Get(url)
+	if err != nil {
+		fmt.Println(err)
+		fmt.Println("Error fetching url:", url)
+	} else {
+		defer resp.Body.Close()
+		fmt.Printf("%s -> Status Code: %d\n", url, resp.StatusCode)
+		if resp.StatusCode == 200 {
+			bodyBytes, err := io.ReadAll(resp.Body)
+			file := strings.Split(url, "//")[1]
+			file += ".txt"
+			fmt.Printf("Saving response body to %s\n", file)
+			err = os.WriteFile(file, bodyBytes, 0666)
+			if err != nil {
+				fmt.Println(err)
+				fmt.Println("Error writing to file:", file)
+			}
+		}
 	}
-	fmt.Println("f1 goroutine execution ended")
-	wg.Done()
-}
 
-func f2() {
-	fmt.Println("f2 goroutine execution started")
-	for i := 5; i < 8; i++ {
-		fmt.Println("f2, i =", i)
-	}
-	fmt.Println("f2 goroutine execution ended")
 }
 
 func main() {
-
-	fmt.Println("main execution started")
-
-	var wg sync.WaitGroup
-	wg.Add(1)
-
-	go f1(&wg)
-	fmt.Println("No of Goroutines:", runtime.NumGoroutine())
-
-	f2()
-	fmt.Println("No of Goroutines:", runtime.NumGoroutine())
-
-	//time.Sleep(time.Second * 2)
-	wg.Wait()
-	fmt.Println("main execution ended")
-
+	urls := []string{
+		"https://www.google.com",
+		"https://www.github.com",
+	}
+	for _, url := range urls {
+		checkAndSaveBody(url)
+		fmt.Println(strings.Repeat("-", 20))
+	}
 }
