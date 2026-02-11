@@ -6,9 +6,10 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"sync"
 )
 
-func checkAndSaveBody(url string) {
+func checkAndSaveBody(url string, wg *sync.WaitGroup) {
 	resp, err := http.Get(url)
 	if err != nil {
 		fmt.Println(err)
@@ -28,6 +29,7 @@ func checkAndSaveBody(url string) {
 			}
 		}
 	}
+	wg.Done()
 
 }
 
@@ -36,8 +38,13 @@ func main() {
 		"https://www.google.com",
 		"https://www.github.com",
 	}
+
+	var wg sync.WaitGroup
+	wg.Add(len(urls))
+
 	for _, url := range urls {
-		checkAndSaveBody(url)
-		fmt.Println(strings.Repeat("-", 20))
+		go checkAndSaveBody(url, &wg)
+		// fmt.Println(strings.Repeat("-", 20))
 	}
+	wg.Wait()
 }
