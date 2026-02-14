@@ -15,5 +15,9 @@ func main() {
 }
 
 func init() {
+	fmt.Println("this is init function #3")
+}
+
+func init() {
 	fmt.Println("this is init function #2")
 }
