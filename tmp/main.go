@@ -5,7 +5,11 @@ import (
 )
 
 func init() {
-	fmt.Println("this is init function")
+	fmt.Println("this is init function #1")
+}
+
+func init() {
+	fmt.Println("this is init function #2")
 }
 
 func main() {
