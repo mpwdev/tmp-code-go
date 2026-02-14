@@ -4,30 +4,12 @@ import (
 	"fmt"
 )
 
-func factorial(n int, c chan int) {
-	f := 1
-	for i := 2; i <= n; i++ {
-		f *= i
-	}
-
-	c <- f
+func init() {
+	fmt.Println("this is init function")
 }
 
 func main() {
 
-	ch := make(chan int)
-
-	defer close(ch)
-
-	go factorial(5, ch)
-
-	f := <-ch
-	fmt.Println("5 factorial =", f)
-
-	for i := 1; i <= 20; i++ {
-		go factorial(i, ch)
-		f := <-ch
-		fmt.Printf("Factorial is %d: %d\n", i, f)
-	}
+	fmt.Println("this is main function")
 
 }
