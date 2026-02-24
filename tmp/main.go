@@ -5,7 +5,5 @@ import (
 )
 
 func main() {
-
 	fmt.Print("this is main func")
-
 }
