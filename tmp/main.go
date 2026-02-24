@@ -6,6 +6,6 @@ import (
 
 func main() {
 
-	fmt.Println("this is main func")
+	fmt.Print("this is main func")
 
 }
