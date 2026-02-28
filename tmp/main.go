@@ -15,8 +15,11 @@ func main() {
 	// fmt.Scan(&investmentAmount)
 	investmentAmount = getInvestmentAmount2()
 
-	fmt.Print("Enter Expected Return Rate: ")
-	fmt.Scan(&expectedReturnRate)
+	// fmt.Print("Enter Expected Return Rate: ")
+	// fmt.Scan(&expectedReturnRate)
+
+	expectedReturnRate = getUserInput("Enter Expected Return Rate: ")
+
 	fmt.Print("Enter Years: ")
 	fmt.Scan(&years)
 	fmt.Println("--------------------------------")
@@ -52,4 +55,11 @@ func getInvestmentAmount2() (investmentAmount float64) {
 
 func calcFutureValue(investmentAmount float64, expectedReturnRate float64, years float64) float64 {
 	return investmentAmount * math.Pow(1+expectedReturnRate/100, years)
+}
+
+func getUserInput(prompt string) float64 {
+	fmt.Print(prompt)
+	var input float64
+	fmt.Scan(&input)
+	return input
 }
