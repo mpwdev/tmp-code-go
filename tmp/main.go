@@ -2,64 +2,82 @@ package main
 
 import (
 	"fmt"
-	"math"
 )
 
 func main() {
-	const inflationRate = 2.5
-	var investmentAmount float64 = 1000
-	var years float64 = 10
-	expectedReturnRate := 5.5
+	var accountBalance = 1000.0
 
-	// fmt.Print("Enter Investment Amount: ")
-	// fmt.Scan(&investmentAmount)
-	investmentAmount = getInvestmentAmount2()
-
-	// fmt.Print("Enter Expected Return Rate: ")
-	// fmt.Scan(&expectedReturnRate)
-
-	expectedReturnRate = getUserInput("Enter Expected Return Rate: ")
-
-	fmt.Print("Enter Years: ")
-	fmt.Scan(&years)
+	fmt.Println("Welcom to Go Bank!")
+	fmt.Println("What do you want to do?")
+	fmt.Println("1. Check Balance")
+	fmt.Println("2. Deposit money")
+	fmt.Println("3. Withdraw money")
+	fmt.Println("4. Exit")
 	fmt.Println("--------------------------------")
 
-	//futureValue := investmentAmount * math.Pow(1+expectedReturnRate/100, years)
-	futureValue := calcFutureValue(investmentAmount, expectedReturnRate, years)
-	futureRealValue := futureValue / math.Pow(1+inflationRate/100, years)
+	var choice int
+	fmt.Print("Enter your choice: ")
+	fmt.Scanln(&choice)
+	fmt.Println("================================")
+	fmt.Println("your choice:", choice)
+	fmt.Println("================================")
 
-	// fmt.Println("Future Value: ", futureValue)
-	fmt.Println("Future Value: ", fmt.Sprintf("%.2f", futureValue))
-	fmt.Println("Future Real Value: ", fmt.Sprintf("%.2f", futureRealValue))
+	if choice == 1 {
+		fmt.Println("Your balance is:", accountBalance)
+	} else if choice == 2 {
+		fmt.Println("Enter the amount to deposit:")
+		var depositAmount float64
+		fmt.Scanln(&depositAmount)
 
-	fmt.Println("--------------------------------")
-	outputText("text test func outputText")
-}
+		if depositAmount <= 0 {
+			fmt.Println("Invalid deposit amount! Must be greater than 0")
+			return
+		}
 
-func outputText(text string) {
-	fmt.Print(text)
-}
+		accountBalance += depositAmount
+		fmt.Println("Deposit successful! New balance is:", accountBalance)
+	} else if choice == 3 {
+		fmt.Println("Enter the amount to withdraw:")
+		var withdrawAmount float64
+		fmt.Scanln(&withdrawAmount)
 
-func getInvestmentAmount() float64 {
-	fmt.Print("Enter Investment Amount: ")
-	var investmentAmount float64
-	fmt.Scan(&investmentAmount)
-	return investmentAmount
-}
+		if withdrawAmount <= 0 {
+			fmt.Println("Invalid withdraw amount! Must be greater than 0")
+			return
+		}
 
-func getInvestmentAmount2() (investmentAmount float64) {
-	fmt.Print("Enter Investment Amount: ")
-	fmt.Scan(&investmentAmount)
-	return investmentAmount
-}
+		if withdrawAmount > accountBalance {
+			fmt.Println("Insufficient balance!")
+			return
+		}
 
-func calcFutureValue(investmentAmount float64, expectedReturnRate float64, years float64) float64 {
-	return investmentAmount * math.Pow(1+expectedReturnRate/100, years)
-}
+		accountBalance -= withdrawAmount
+		fmt.Println("Withdraw successful! New balance is:", accountBalance)
+	} else if choice == 4 {
+		fmt.Println("Exiting...")
+		return
+	} else {
+		fmt.Println("Invalid choice!")
+	}
 
-func getUserInput(prompt string) float64 {
-	fmt.Print(prompt)
-	var input float64
-	fmt.Scan(&input)
-	return input
+	// switch choice {
+	// case 1:
+	// 	fmt.Println("Enter the amount to deposit:")
+	// 	var amount float64
+	// 	fmt.Scanln(&amount)
+	// 	fmt.Println("Deposit successful!")
+	// case 2:
+	// 	fmt.Println("Enter the amount to withdraw:")
+	// 	var amount float64
+	// 	fmt.Scanln(&amount)
+	// 	fmt.Println("Withdraw successful!")
+	// case 3:
+	// 	fmt.Println("Your balance is:")
+	// 	fmt.Println("Balance successful!")
+	// case 4:
+	// 	fmt.Println("Exiting...")
+	// 	return
+	// default:
+	// 	fmt.Println("Invalid choice!")
+	// }
 }
