@@ -1,49 +1,25 @@
 package main
 
 import (
-	"errors"
 	"fmt"
-	"os"
-	"strconv"
+
+	"example.com/calc/fileops"
 )
 
 const accountBalanceFile = "balance.txt"
 const defaultBalance = 1000.00
 
-func getBalanceFromFile() (float64, error) {
-	data, err := os.ReadFile(accountBalanceFile)
-	if err != nil {
-		//fmt.Println("Error reading balance file, use default balance:", defaultBalance)
-		return defaultBalance, errors.New("error reading balance file")
-	}
-	balance, err := strconv.ParseFloat(string(data), 64)
-	if err != nil {
-		return defaultBalance, errors.New("error parsing stored balance value")
-	}
-	return balance, nil
-}
-
-func writeBalanceToFile(balance float64) {
-	balanceText := fmt.Sprintf("%.2f", balance)
-	os.WriteFile(accountBalanceFile, []byte(balanceText), 0644)
-}
-
 func main() {
 	// var accountBalance = 1000.0
-	var accountBalance, err = getBalanceFromFile()
+	var accountBalance, err = fileops.GetFloatFromFile(accountBalanceFile, defaultBalance)
 	if err != nil {
 		fmt.Println("ERROR:", err)
 		fmt.Println("--------------------------------")
 	}
 
-	fmt.Println("Welcom to Go Bank!")
+	fmt.Println("Welcome to Go Bank!")
 
-	fmt.Println("What do you want to do?")
-	fmt.Println("1. Check Balance")
-	fmt.Println("2. Deposit money")
-	fmt.Println("3. Withdraw money")
-	fmt.Println("4. Exit")
-	fmt.Println("--------------------------------")
+	PresentOptions()
 
 	var choice int
 	fmt.Print("Enter your choice: ")
@@ -66,7 +42,7 @@ func main() {
 
 		accountBalance += depositAmount
 		fmt.Println("Deposit successful! New balance is:", accountBalance)
-		writeBalanceToFile(accountBalance)
+		fileops.WriteFloatToFile(accountBalanceFile, accountBalance)
 	} else if choice == 3 {
 		fmt.Print("Enter the amount to withdraw:")
 		var withdrawAmount float64
@@ -84,7 +60,7 @@ func main() {
 
 		accountBalance -= withdrawAmount
 		fmt.Println("Withdraw successful! New balance is:", accountBalance)
-		writeBalanceToFile(accountBalance)
+		fileops.WriteFloatToFile(accountBalanceFile, accountBalance)
 	} else if choice == 4 {
 		fmt.Println("Exiting...")
 		return
