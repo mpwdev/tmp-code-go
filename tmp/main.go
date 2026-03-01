@@ -2,21 +2,44 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
-func main() {
-	age := 32
-
-	var agePointer *int
-	agePointer = &age
-
-	fmt.Println("Age: ", *agePointer)
-
-	getAdultYears(agePointer)
-	fmt.Println("Adult years: ", age)
+type user struct {
+	firstName string
+	lastName  string
+	birthDate string
+	createdAt time.Time
 }
 
-func getAdultYears(age *int) {
-	//return *age - 18
-	*age = *age - 18
+func (u user) outputUserDetails() {
+	fmt.Println("User details:")
+	fmt.Println("First name: ", u.firstName)
+	fmt.Println("Last name: ", u.lastName)
+	fmt.Println("Birth date: ", u.birthDate)
+	fmt.Println("Created at: ", u.createdAt)
+}
+
+func main() {
+	userFirstName := getUserData("Please enter your first name: ")
+	userLastName := getUserData("Please enter your last name: ")
+	userBirthdate := getUserData("Please enter your birthdate (MM/DD/YYYY): ")
+
+	var appUser user
+	appUser = user{
+		firstName: userFirstName,
+		lastName:  userLastName,
+		birthDate: userBirthdate,
+		createdAt: time.Now(),
+	}
+
+	//outputUserDetails(&appUser)
+	appUser.outputUserDetails()
+}
+
+func getUserData(promptText string) string {
+	fmt.Print(promptText)
+	var value string
+	fmt.Scan(&value)
+	return value
 }
