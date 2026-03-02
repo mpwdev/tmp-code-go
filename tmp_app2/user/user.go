@@ -13,6 +13,12 @@ type User struct {
 	createdAt time.Time
 }
 
+type Admin struct {
+	email    string
+	password string
+	User
+}
+
 func (u *User) OutputUserDetails() {
 	fmt.Println("User details:")
 	fmt.Println("First name: ", u.firstName)
@@ -24,6 +30,24 @@ func (u *User) OutputUserDetails() {
 func (u *User) ClearuserName() {
 	u.firstName = ""
 	u.lastName = ""
+}
+
+func NewAdmin(email string, password string) (*Admin, error) {
+	// some validation rules
+	if email == "" || password == "" {
+		return nil, errors.New("email and password are required")
+	}
+
+	return &Admin{
+		email:    email,
+		password: password,
+		User: User{
+			firstName: "Admin",
+			lastName:  "Admin",
+			birthDate: "01/01/1970",
+			createdAt: time.Now(),
+		},
+	}, nil
 }
 
 func New(firstName string, lastName string, birthDate string) (*User, error) {

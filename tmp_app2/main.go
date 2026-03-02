@@ -25,10 +25,23 @@ func main() {
 		return
 	}
 
+	adminUser, err := user.NewAdmin("admin@example.com", "password")
+	if err != nil {
+		fmt.Println("Error creating admin:", err)
+		return
+	}
+
 	//outputUserDetails(&appUser)
 	appUser.OutputUserDetails()
 	appUser.ClearuserName()
 	appUser.OutputUserDetails()
+
+	// adminUser.User.OutputUserDetails()
+	// adminUser.User.ClearuserName()
+	// adminUser.User.OutputUserDetails()
+	adminUser.OutputUserDetails()
+	adminUser.ClearuserName()
+	adminUser.OutputUserDetails()
 }
 
 func getUserData(promptText string) string {
