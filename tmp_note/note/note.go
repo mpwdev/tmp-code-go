@@ -1,8 +1,11 @@
 package note
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
+	"os"
+	"strings"
 	"time"
 )
 
@@ -18,6 +21,19 @@ func (note Note) Display() {
 	fmt.Println("Note content:", note.content)
 	fmt.Println("Note created at:", note.createdAt)
 	fmt.Println("--------------------------------")
+}
+
+func (note Note) Save() error {
+	fileName := strings.ReplaceAll(note.title, " ", "_")
+	fileName = strings.ToLower(fileName)
+
+	json, err := json.Marshal(note)
+	if err != nil {
+		//fmt.Println("Error marshalling note:", err)
+		return err
+	}
+
+	return os.WriteFile(fileName, json, 0644)
 }
 
 func New(title string, content string) (Note, error) {
