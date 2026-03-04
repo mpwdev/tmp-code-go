@@ -13,9 +13,11 @@ type Note struct {
 }
 
 func (note Note) Display() {
+	fmt.Println("--------------------------------")
 	fmt.Println("Note title:", note.title)
 	fmt.Println("Note content:", note.content)
 	fmt.Println("Note created at:", note.createdAt)
+	fmt.Println("--------------------------------")
 }
 
 func New(title string, content string) (Note, error) {
