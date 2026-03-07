@@ -1,73 +1,24 @@
 package main
 
-import (
-	"errors"
-	"fmt"
-	"time"
-)
-
-type user struct {
-	firstName string
-	lastName  string
-	birthDate string
-	createdAt time.Time
-}
-
-func (u *user) outputUserDetails() {
-	fmt.Println("User details:")
-	fmt.Println("First name: ", u.firstName)
-	fmt.Println("Last name: ", u.lastName)
-	fmt.Println("Birth date: ", u.birthDate)
-	fmt.Println("Created at: ", u.createdAt)
-}
-
-func (u *user) clearuserName() {
-	u.firstName = ""
-	u.lastName = ""
-}
-
-func newUser(firstName string, lastName string, birthDate string) (*user, error) {
-	// some validation rules
-	if firstName == "" || lastName == "" || birthDate == "" {
-		return nil, errors.New("first name, last name and birth date are required")
-	}
-
-	return &user{
-		firstName: firstName,
-		lastName:  lastName,
-		birthDate: birthDate,
-		createdAt: time.Now(),
-	}, nil
-}
+import "fmt"
 
 func main() {
-	userFirstName := getUserData("Please enter your first name: ")
-	userLastName := getUserData("Please enter your last name: ")
-	userBirthdate := getUserData("Please enter your birthdate (MM/DD/YYYY): ")
+	var productNames [4]string = [4]string{"Product 1", "Product 2", "Product 3", "Product 4"}
+	prices := [4]float64{10.0, 20.0, 30.0, 40.0}
 
-	var appUser *user
-	// appUser = user{
-	// 	firstName: userFirstName,
-	// 	lastName:  userLastName,
-	// 	birthDate: userBirthdate,
-	// 	createdAt: time.Now(),
-	// }
+	fmt.Println("Product names: ", productNames)
+	fmt.Println("Prices: ", prices)
 
-	appUser, err := newUser(userFirstName, userLastName, userBirthdate)
-	if err != nil {
-		fmt.Println("Error creating user:", err)
-		return
-	}
+	productNames[2] = "Product-3-updated"
+	fmt.Println("Product names: ", productNames)
 
-	//outputUserDetails(&appUser)
-	appUser.outputUserDetails()
-	appUser.clearuserName()
-	appUser.outputUserDetails()
-}
+	fmt.Println("Prices:", prices[2])
 
-func getUserData(promptText string) string {
-	fmt.Print(promptText)
-	var value string
-	fmt.Scanln(&value)
-	return value
+	featuredPrices := prices[1:]
+	featuredPrices[0] = 100.0
+	fmt.Println("Featured prices: ", featuredPrices)
+
+	fmt.Println("Prices: ", prices)
+	fmt.Println(len(featuredPrices), cap(featuredPrices))
+
 }
