@@ -7,6 +7,7 @@ func main() {
 
 	double := createTransformer(2)
 	triple := createTransformer(3)
+	quadruple := createTransformer(4)
 
 	transformed := transformNumbers(&numbers, func(number int) int {
 		return number * 2
@@ -14,10 +15,12 @@ func main() {
 
 	doubled := transformNumbers(&numbers, double)
 	tripled := transformNumbers(&numbers, triple)
+	quadrupled := transformNumbers(&numbers, quadruple)
 
 	fmt.Println(transformed)
 	fmt.Println(doubled)
 	fmt.Println(tripled)
+	fmt.Println(quadrupled)
 }
 
 func transformNumbers(numbers *[]int, transform func(int) int) []int {
