@@ -1,40 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
+
+func greet(phrase string) {
+	fmt.Println("Hello!", phrase)
+}
+
+func slowGreet(phrase string) {
+	time.Sleep(3 * time.Second) // simulate a slow, long-taking task
+	fmt.Println("Hello!", phrase)
+}
 
 func main() {
-	numbers := []int{1, 2, 3}
-
-	double := createTransformer(2)
-	triple := createTransformer(3)
-	quadruple := createTransformer(4)
-
-	transformed := transformNumbers(&numbers, func(number int) int {
-		return number * 2
-	})
-
-	doubled := transformNumbers(&numbers, double)
-	tripled := transformNumbers(&numbers, triple)
-	quadrupled := transformNumbers(&numbers, quadruple)
-
-	fmt.Println(transformed)
-	fmt.Println(doubled)
-	fmt.Println(tripled)
-	fmt.Println(quadrupled)
-}
-
-func transformNumbers(numbers *[]int, transform func(int) int) []int {
-	dNumbers := []int{}
-
-	for _, val := range *numbers {
-		dNumbers = append(dNumbers, transform(val))
-	}
-
-	return dNumbers
-}
-
-func createTransformer(factor int) func(int) int {
-	return func(number int) int {
-		return number * factor
-	}
+	greet("Nice to meet you!")
+	greet("How are you?")
+	slowGreet("How ... are ... you ...?")
+	greet("I hope you're liking the course!")
 }
