@@ -1,3 +1,0 @@
-Hello World,
-I learn GoLang,
-I love programming,
