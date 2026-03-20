@@ -11,8 +11,16 @@ func main() {
 	//testFunc()
 	utils.UtilTestFunc()
 
+	// const
+	const c1 = 10
+	const c2 = 20.5
+	const c3 = "Hello, World!"
+	const c4 = true
+
+	// vars types
 	var v int = 10
-	var f float64 = 10.5
+	//var f float64 = 10.5
+	f := 10.5
 	var s string = "Hello, World!"
 	var b bool = true
 	// var arr [3]int = [3]int{1, 2, 3}
