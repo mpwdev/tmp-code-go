@@ -7,12 +7,13 @@ import (
 )
 
 func main() {
-	//fmt.Println("Hello, World!")
-	//testFunc()
+	fmt.Println("Hello, World!")
+	testFunc()
 	utils.UtilTestFunc()
 
-	var name string
-	fmt.Print("Enter your name: ")
-	fmt.Scan(&name)
-	fmt.Println("Hello,", name)
+	outputText("Hello, Master")
+}
+
+func outputText(text string) {
+	fmt.Println(text)
 }
