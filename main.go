@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"time"
 
+	"example.com/tmp/person"
 	"example.com/tmp/utils"
 )
 
@@ -12,53 +12,33 @@ func main() {
 	testFunc()
 	utils.UtilTestFunc()
 
-	p1 := Person{
-		Name:      "Jim",
-		Age:       35,
-		Email:     "jim@example.com",
-		createdAt: time.Now(),
+	// p1 := person.Person{
+	// 	Name:      "Jim",
+	// 	Age:       35,
+	// 	Email:     "jim@example.com",
+	// 	CreatedAt: time.Now(),
+	// }
+
+	p1, err := person.New("Jim", "jim@example.com", 35)
+	if err != nil {
+		fmt.Println("Error creating person:", err)
+		return
 	}
 
 	p1.SayHello()
-	printPerson(&p1)
+	person.PrintPerson(p1)
 	p1.ClearName()
-	printPerson(&p1)
+	person.PrintPerson(p1)
 
-	p2 := newPerson("John", "john@example.com", 25)
-	p2.SayHello()
-	printPerson(p2)
-	p2.ClearName()
-	printPerson(p2)
-}
+	fmt.Println("--------------------------------")
 
-// Person struct
-
-type Person struct {
-	Name      string
-	Email     string
-	Age       int
-	createdAt time.Time
-}
-
-func (p Person) SayHello() {
-	fmt.Println("Hello, my name is", p.Name, "and I am", p.Age, "years old and my email is", p.Email)
-}
-
-func printPerson(p *Person) {
-	fmt.Println("name:", p.Name)
-	fmt.Println("age:", p.Age)
-	fmt.Println("email:", p.Email)
-	fmt.Println("created at:", p.createdAt.Format(time.DateTime))
-}
-
-func (p *Person) ClearName() {
-	p.Name = ""
-}
-
-func newPerson(name string, email string, age int) *Person {
-	return &Person{
-		Name:  name,
-		Email: email,
-		Age:   age,
+	a1, err := person.NewAdmin("John", "john@example.com", 27, 5)
+	if err != nil {
+		fmt.Println("Error creating admin:", err)
+		return
 	}
+	a1.SayHello()
+	person.PrintPerson(&a1.Person)
+	fmt.Println("Admin level:", a1.AdminLevel)
+
 }
