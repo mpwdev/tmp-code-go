@@ -21,7 +21,8 @@ func main() {
 
 	p1.SayHello()
 	printPerson(&p1)
-
+	p1.ClearName()
+	printPerson(&p1)
 }
 
 // Person struct
@@ -42,4 +43,8 @@ func printPerson(p *Person) {
 	fmt.Println("age:", p.Age)
 	fmt.Println("email:", p.Email)
 	fmt.Println("created at:", p.createdAt.Format(time.DateTime))
+}
+
+func (p *Person) ClearName() {
+	p.Name = ""
 }
