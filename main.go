@@ -23,6 +23,12 @@ func main() {
 	printPerson(&p1)
 	p1.ClearName()
 	printPerson(&p1)
+
+	p2 := newPerson("John", "john@example.com", 25)
+	p2.SayHello()
+	printPerson(p2)
+	p2.ClearName()
+	printPerson(p2)
 }
 
 // Person struct
@@ -47,4 +53,12 @@ func printPerson(p *Person) {
 
 func (p *Person) ClearName() {
 	p.Name = ""
+}
+
+func newPerson(name string, email string, age int) *Person {
+	return &Person{
+		Name:  name,
+		Email: email,
+		Age:   age,
+	}
 }
