@@ -18,8 +18,9 @@ func main() {
 		"facebook": "https://www.facebook.com",
 		"twitter":  "https://www.twitter.com",
 	}
-	fmt.Println(websites["google"])
-	websites["google"] = "https://www.google.com/new"
-	fmt.Println(websites["google"])
+
+	for key, value := range websites {
+		fmt.Println(key, value)
+	}
 
 }
