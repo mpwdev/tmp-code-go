@@ -11,13 +11,10 @@ func main() {
 	testFunc()
 	utils.UtilTestFunc()
 
-	var name str = "Super Max"
-	name.log()
+	// comment
 
-}
+	// example array
+	prices := [4]float64{10.0, 20.0, 30.0, 40.0}
+	fmt.Println(prices)
 
-type str string
-
-func (text str) log() {
-	fmt.Println(text)
 }
