@@ -15,6 +15,8 @@ func main() {
 
 	// example array
 	prices := [4]float64{10.0, 20.0, 30.0, 40.0}
-	fmt.Println(prices)
+	fmt.Println(prices[2])
+	prices[2] = 300.0
+	fmt.Println(prices[2])
 
 }
