@@ -13,10 +13,13 @@ func main() {
 
 	// comment
 
-	// example array
-	prices := [4]float64{10.0, 20.0, 30.0, 40.0}
-	fmt.Println(prices[2])
-	prices[2] = 300.0
-	fmt.Println(prices[2])
+	websites := map[string]string{
+		"google":   "https://www.google.com",
+		"facebook": "https://www.facebook.com",
+		"twitter":  "https://www.twitter.com",
+	}
+	fmt.Println(websites["google"])
+	websites["google"] = "https://www.google.com/new"
+	fmt.Println(websites["google"])
 
 }
