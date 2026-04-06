@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"example.com/tmp/person"
 	"example.com/tmp/utils"
 )
 
@@ -22,5 +23,12 @@ func main() {
 	for key, value := range websites {
 		fmt.Println(key, value)
 	}
+
+	person, err := person.New("John Doe", "john.doe@example.com", 30)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(person)
 
 }
