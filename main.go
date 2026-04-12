@@ -7,6 +7,10 @@ import (
 	"example.com/tmp/utils"
 )
 
+func swap(x, y string) (string, string) {
+	return y, x
+}
+
 func main() {
 	fmt.Println("Hello, World!")
 	testFunc()
@@ -14,21 +18,16 @@ func main() {
 
 	// comment
 
-	websites := map[string]string{
-		"google":   "https://www.google.com",
-		"facebook": "https://www.facebook.com",
-		"twitter":  "https://www.twitter.com",
-	}
-
-	for key, value := range websites {
-		fmt.Println(key, value)
-	}
-
 	person, err := person.New("John Doe2", "john.doe2@example.com", 30)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 	fmt.Println(person)
+
+	//
+
+	a, b := swap("hello", "world")
+	fmt.Println(a, b)
 
 }
