@@ -16,7 +16,10 @@ func main() {
 	// }
 	// fmt.Println(person)
 
-	v := 5.321
-	fmt.Printf("v is of type %T\n", v)
+	sum := 0
+	for i := 0; i < 10; i++ {
+		sum += i
+	}
+	fmt.Println(sum)
 
 }
