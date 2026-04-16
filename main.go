@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
-	"runtime"
+	"time"
 )
 
 func pow(x, n, lim float64) float64 {
@@ -28,16 +28,20 @@ func main() {
 	// }
 	// fmt.Println(person)
 
-	fmt.Print("Go runs on ")
-	switch os := runtime.GOOS; os {
-	case "darwin":
-		fmt.Println("macOS.")
-	case "linux":
-		fmt.Println("Linux.")
+	fmt.Println("When's Saturday?")
+	today := time.Now().Weekday()
+	switch time.Saturday {
+	case today + 0:
+		fmt.Println("Today.")
+	case today + 1:
+		fmt.Println("Tomorrow.")
+	case today + 2:
+		fmt.Println("In two days.")
 	default:
-		// freebsd, openbsd,
-		// plan9, windows...
-		fmt.Printf("%s.\n", os)
+		fmt.Println("Too far away.")
 	}
+
+	fmt.Println(time.Now().Format("2006-01-02 15:04:05"))
+	fmt.Println(time.Now().Weekday() + 1)
 
 }
