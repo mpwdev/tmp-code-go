@@ -26,15 +26,21 @@ func main() {
 	// 	return
 	// }
 	// fmt.Println(person)
-	i, j := 42, 2701
+	i, j := 10, 200
 
-	p := &i         // point to i
-	fmt.Println(*p) // read i through the pointer
-	*p = 21         // set i through the pointer
-	fmt.Println(i)  // see the new value of i
+	p := &i
+	fmt.Println("p", p)
+	fmt.Println("*p", *p)
+	*p = 30
+	fmt.Println("p", p)
+	fmt.Println("*p", *p)
+	fmt.Println("i", i)
 
-	p = &j         // point to j
-	*p = *p / 37   // divide j through the pointer
-	fmt.Println(j) // see the new value of j
+	d := &j
+	fmt.Println("d", d)
+	fmt.Println("*d", *d)
+	*d = *d + 50
+	fmt.Println("*d", *d)
+	fmt.Println("j", j)
 
 }
