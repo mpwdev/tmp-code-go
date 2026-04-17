@@ -26,21 +26,14 @@ func main() {
 	// 	return
 	// }
 	// fmt.Println(person)
-	i, j := 10, 200
 
-	p := &i
-	fmt.Println("p", p)
-	fmt.Println("*p", *p)
-	*p = 30
-	fmt.Println("p", p)
-	fmt.Println("*p", *p)
-	fmt.Println("i", i)
+	v := Vertex{1, 2}
+	p := &v
+	p.X = 5
+	fmt.Println(v)
+}
 
-	d := &j
-	fmt.Println("d", d)
-	fmt.Println("*d", *d)
-	*d = *d + 50
-	fmt.Println("*d", *d)
-	fmt.Println("j", j)
-
+type Vertex struct {
+	X int
+	Y int
 }
