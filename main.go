@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"strings"
 )
 
 func pow(x, n, lim float64) float64 {
@@ -27,23 +28,21 @@ func main() {
 	// }
 	// fmt.Println(person)
 
-	s := []int{2, 3, 5, 7, 11, 13}
-	printSlice(s)
+	// Create a tic-tac-toe board.
+	board := [][]string{
+		[]string{"_", "_", "_"},
+		[]string{"_", "_", "_"},
+		[]string{"_", "_", "_"},
+	}
 
-	// Slice the slice to give it zero length.
-	s = s[:0]
-	printSlice(s)
+	// The players take turns.
+	board[0][0] = "X"
+	board[2][2] = "O"
+	board[1][2] = "X"
+	board[1][0] = "O"
+	board[0][2] = "X"
 
-	// Extend its length.
-	s = s[:4]
-	printSlice(s)
-
-	// Drop its first two values.
-	s = s[2:]
-	printSlice(s)
-}
-
-func printSlice(s []int) {
-	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
-
+	for i := 0; i < len(board); i++ {
+		fmt.Printf("%s\n", strings.Join(board[i], " "))
+	}
 }
