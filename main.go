@@ -2,18 +2,13 @@ package main
 
 import (
 	"fmt"
-	"math"
 )
 
-func pow(x, n, lim float64) float64 {
-	if v := math.Pow(x, n); v < lim {
-		return v
-	} else {
-		fmt.Printf("%g >= %g\n", v, lim)
-	}
-	// can't use v here, though
-	return lim
+type Vertex struct {
+	Lat, Long float64
 }
+
+var m map[string]Vertex
 
 func main() {
 	// fmt.Println("Hello, World!")
@@ -27,9 +22,10 @@ func main() {
 	// }
 	// fmt.Println(person)
 
-	var pow = []int{1, 2, 4, 8, 16, 32, 64, 128}
-
-	for i, v := range pow {
-		fmt.Printf("2**%d = %d\n", i, v)
+	m = make(map[string]Vertex)
+	m["Bell Labs"] = Vertex{
+		40.68433, -74.39967,
 	}
+	fmt.Println(m["Bell Labs"])
+	fmt.Println(m)
 }
