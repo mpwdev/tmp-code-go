@@ -2,8 +2,21 @@ package main
 
 import (
 	"fmt"
-	"math"
 )
+
+type I interface {
+	M()
+}
+
+type T struct {
+	S string
+}
+
+// This method means type T implements the interface I,
+// but we don't need to explicitly declare that it does so.
+func (t T) M() {
+	fmt.Println(t.S)
+}
 
 func main() {
 	// fmt.Println("Hello, World!")
@@ -17,20 +30,6 @@ func main() {
 	// }
 	// fmt.Println(person)
 
-	v := Vertex{3, 4}
-	v.Scale(10)
-	fmt.Println(v.Abs())
-}
-
-type Vertex struct {
-	X, Y float64
-}
-
-func (v Vertex) Abs() float64 {
-	return math.Sqrt(v.X*v.X + v.Y*v.Y)
-}
-
-func (v *Vertex) Scale(f float64) {
-	v.X = v.X * f
-	v.Y = v.Y * f
+	var i I = T{"hello"}
+	i.M()
 }
