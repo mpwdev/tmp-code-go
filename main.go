@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 func main() {
@@ -16,17 +17,15 @@ func main() {
 	// }
 	// fmt.Println(person)
 
-	m := make(map[string]int)
+	f := MyFloat(-math.Sqrt2)
+	fmt.Println(f.Abs())
+}
 
-	m["Answer"] = 42
-	fmt.Println("The value:", m["Answer"])
+type MyFloat float64
 
-	m["Answer"] = 48
-	fmt.Println("The value:", m["Answer"])
-
-	delete(m, "Answer")
-	fmt.Println("The value:", m["Answer"])
-
-	v, ok := m["Answer"]
-	fmt.Println("The value:", v, "Present?", ok)
+func (f MyFloat) Abs() float64 {
+	if f < 0 {
+		return float64(-f)
+	}
+	return float64(f)
 }
