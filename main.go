@@ -2,20 +2,24 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
-type I interface {
-	M()
+type MyError struct {
+	When time.Time
+	What string
 }
 
-type T struct {
-	S string
+func (e *MyError) Error() string {
+	return fmt.Sprintf("at %v, %s",
+		e.When, e.What)
 }
 
-// This method means type T implements the interface I,
-// but we don't need to explicitly declare that it does so.
-func (t T) M() {
-	fmt.Println(t.S)
+func run() error {
+	return &MyError{
+		time.Now(),
+		"it didn't work",
+	}
 }
 
 func main() {
@@ -30,6 +34,7 @@ func main() {
 	// }
 	// fmt.Println(person)
 
-	var i I = T{"hello"}
-	i.M()
+	if err := run(); err != nil {
+		fmt.Println(err)
+	}
 }
