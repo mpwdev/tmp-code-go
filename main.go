@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
+	"math"
 )
 
 func main() {
@@ -17,6 +17,6 @@ func main() {
 	// }
 	// fmt.Println(person)
 
-	fmt.Println("My favorite number is", rand.Intn(10))
+	fmt.Println(math.Pi)
 
 }
