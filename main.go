@@ -19,4 +19,8 @@ func main() {
 
 	fmt.Println(math.Pi)
 
+	if x := 10; x > 0 {
+		fmt.Println(x)
+	}
+
 }
