@@ -19,8 +19,8 @@ func main() {
 
 	fmt.Println(math.Pi)
 
-	if x := 10; x > 0 {
-		fmt.Println(x)
+	if y := 10; y > 0 {
+		fmt.Println(y)
 	}
 
 }
